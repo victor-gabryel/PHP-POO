@@ -3,12 +3,13 @@ require_once './Pessoa.php';
 class Professor extends Pessoa {
     
     private $especialidade;
-    private $salario;
+    protected $salario;
     private $aumento;
 
 
     public function receberAumento() {
         echo '<p>Professor '. $this->getNome().' recebeu aumento de ' . $this->getAumento(). '</p>';
+        $this->setSalario($this->getAumento() + $this->getSalario());
     }
     
     public function getEspecialidade() {
